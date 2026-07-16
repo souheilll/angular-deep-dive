@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostBinding, HostListener, inject, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -7,10 +7,10 @@ import { Component, HostBinding, HostListener, input, ViewEncapsulation } from '
   templateUrl: './control.component.html',
   styleUrl: './control.component.css',
   encapsulation:ViewEncapsulation.None,
-  // host:{
-  //   class:'control',
-  //   '(click)':'onClick()'
-  // }
+  host:{
+    // class:'control',
+    '(click)':'onClick()'
+  }
 })
 export class ControlComponent {
   // NOTE!!!
@@ -27,6 +27,10 @@ export class ControlComponent {
   // @HostListener('click')  onClick(){
   //   console.log('clicked')
   // }
-
+private el=inject(ElementRef)
 label=input.required<string>()
+
+onClick(){
+  console.log(this.el)
+}
 }
