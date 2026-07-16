@@ -1,4 +1,4 @@
-import { Component, input, ViewEncapsulation } from '@angular/core';
+import { Component, HostBinding, HostListener, input, ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -6,8 +6,27 @@ import { Component, input, ViewEncapsulation } from '@angular/core';
   imports: [],
   templateUrl: './control.component.html',
   styleUrl: './control.component.css',
-  encapsulation:ViewEncapsulation.None
+  encapsulation:ViewEncapsulation.None,
+  // host:{
+  //   class:'control',
+  //   '(click)':'onClick()'
+  // }
 })
 export class ControlComponent {
+  // NOTE!!!
+  // using the host object or HostBinding decorator are using to add 
+  // a class in this exemple we have control in the host element 
+  // if we use it we need to remove the control class from this template 
+
+  // @HostBinding('class') className='control'
+
+   // NOTE!!!
+  // we have also a hostListener decorator wich is for listenig to event in this 
+  // this component  
+
+  // @HostListener('click')  onClick(){
+  //   console.log('clicked')
+  // }
+
 label=input.required<string>()
 }
